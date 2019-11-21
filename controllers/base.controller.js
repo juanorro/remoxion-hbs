@@ -3,6 +3,6 @@ const mongoose = require('mongoose');
 
 module.exports.base = (req, res, next) => {
     res.render('index', {
-        title: 'Welcome to your CRUD project'
+        title: 'Welcome to Remoxion'
     });
 };
