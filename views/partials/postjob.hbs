@@ -2,40 +2,40 @@
 <form class="p-4 bg-white border" action="/postjob" method="POST">
 <h1>Create</h1>
 	{{else}}
-	<form class="p-4 bg-white border" action="/postjob/{{jobs.id}}/edit" method="POST">
+	<form class="p-4 bg-white border" action="/postjob/{{job.id}}/edit" method="POST">
 		{{/if}}
 		<div class="form-group">
 			<label for="title">Title:</label>
-			<input type="text" class="form-control" name="title" id="title" value="{{jobs.title}}">
+			<input type="text" class="form-control" name="title" id="title" value="{{job.title}}">
 		</div>
 
 		<div class="form-group">
 			<label for="category">Category:</label>
-			<input type="text" class="form-control" name="category" id="category" value="{{jobs.category}}">
+			<input type="text" class="form-control" name="category" id="category" value="{{job.category}}">
 		</div>
 		<div class="form-group">
 			<label for="jobtype">Tipo de trabajo</label>
-			<input type="text" name="jobtype" class="form-control" id="jobtype" value="{{jobs.jobtype}}">
+			<input type="text" name="jobtype" class="form-control" id="jobtype" value="{{job.jobtype}}">
 		</div>
 
 		<div class="form-group">
 			<label for="region">Región:</label>
-			<input type="text" class="form-control" name="region" id="region" value="{{jobs.region}}">
+			<input type="text" class="form-control" name="region" id="region" value="{{job.region}}">
 		</div>
 
         <div class="form-group">
 			<label for="salary">Salario:</label>
-			<input type="number" class="form-control" name="salary" id="salary" value="{{jobs.salary}}">
+			<input type="number" class="form-control" name="salary" id="salary" value="{{job.salary}}">
 		</div>
 
         <div class="form-group">
 			<label for="apply">Candidatarse:</label>
-			<input type="text" class="form-control" name="apply" id="apply" value="{{jobs.apply}}">
+			<input type="text" class="form-control" name="apply" id="apply" value="{{job.apply}}">
 		</div>
 
         <div class="form-group">
 			<label for="jobDes">Descripción del puesto:</label>
-			<input type="text" class="form-control" name="jobDes" id="jobDes" value="{{jobs.jobDes}}">
+			<input type="text" class="form-control" name="jobDes" id="jobDes" value="{{job.jobDes}}">
 		</div>
         
 
