@@ -27,7 +27,7 @@ const jobsSchema = new Schema (
         },
         apply: {
             type: String, 
-            required: true
+            require: true
         },
         jobDes: {
             type: String, 
