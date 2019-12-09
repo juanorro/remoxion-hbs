@@ -66,7 +66,7 @@ module.exports.edit = (req, res, next) => {
 module.exports.doEdit = (req, res, next) => {
     const id = req.params.id;
 
-    if (!moongose.Type.ObjectId.isValid(id)) {
+    if (!moongose.Types.ObjectId.isValid(id)) {
         next(createError(404));
     } else {
         Jobs.findByIdAndUpdate(id, req.body, {new: true })
@@ -76,5 +76,20 @@ module.exports.doEdit = (req, res, next) => {
             }) .catch(
                 error => next(error)
             );
+    }
+};
+
+module.exports.delete = (req, res, next) => {
+    const id = req.params.id; 
+
+    if (!mongoose.Types.ObjectId.isValid(id)) {
+        next(createError(404));
+    } else {
+        Jobs.findByIdAndDelete(id)
+            .then(jobDeleted => {
+                console.log('Job deleted => ', jobDeleted)
+                res.redirect('/')
+            })
+            .catch(error => next(error))
     }
 }

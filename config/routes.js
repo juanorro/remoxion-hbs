@@ -12,5 +12,6 @@ router.post('/postjob', jobsController.doNewJob);
 router.get('/job/:id', jobsController.detailsJob);
 router.get('/job/:id/edit', jobsController.edit);
 router.post('/job/:id/edit', jobsController.doEdit);
+router.post('/job/:id/delete', jobsController.delete);
 
 module.exports = router;
