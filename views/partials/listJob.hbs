@@ -1,0 +1,17 @@
+<div class="card">
+  <div class="card-body">
+    <h5 class="card-title">
+      {{this.title}}
+    </h5>
+    <p><small>{{this.company}}</small></p>
+    <a href="/job/{{this.id}}" class="btn btn-info">
+      See details
+    </a>
+    <a href="/job/{{this.id}}/edit" class="btn btn-success">
+      Edit
+    </a>
+    <form class="d-inline" action="/job/{{this.id}}/delete" method="POST">
+      <button class="btn btn-danger">Delete</button>
+    </form>
+  </div>
+</div>
