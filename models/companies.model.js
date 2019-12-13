@@ -23,6 +23,7 @@ const companiesSchema = new Schema (
         },
         password: {
             type: String, 
+            required: true,
         },
         vat: {
             type: String, 
@@ -66,6 +67,13 @@ userSchema.pre('save', function(next) {
 userSchema.methods.checkPassword = function(password) {
     return bcrypt.compare(password, this.password);
 };
+
+jobsSchema.virtual('jobs', {
+    ref: 'Jobs',
+    foreignField: 'Company',
+    localField: '_id',
+    justOne: false
+})
 
 const Companies = mongoose.model('Companies', companiesSchema);
 module.exports = Companies;

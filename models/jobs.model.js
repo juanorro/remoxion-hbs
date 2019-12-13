@@ -32,6 +32,11 @@ const jobsSchema = new Schema (
         jobDes: {
             type: String, 
             require: true
+        },
+        company: {
+            type: Schema.Types.ObjectId,
+            required: true, 
+            ref: 'Company'
         }
     }, { timestamps: true });
 
