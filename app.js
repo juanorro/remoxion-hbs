@@ -9,6 +9,7 @@ const cookieParser = require('cookie-parser');
  */
 require('./config/hbs.config');
 require('./config/db.config');
+const session = require('./config/session.config');
 
 /**
  * Configure express
@@ -19,6 +20,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+app.use(session);
 
 /**
  * View engine setup

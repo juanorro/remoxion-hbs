@@ -2,6 +2,7 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 const bcrypt = require('bcryptjs');
 const SALT_WORK_FACTOR = 10;
+const jobsSchema = require('./jobs.model');
 
 const companiesSchema = new Schema (
     {
@@ -23,7 +24,7 @@ const companiesSchema = new Schema (
         },
         password: {
             type: String, 
-            required: true,
+            required: true
         },
         vat: {
             type: String, 
@@ -34,21 +35,29 @@ const companiesSchema = new Schema (
             require: true
         },
         iconimg: {
-            type: String, 
+            type: String
         },
         description: {
-            type: String, 
+            type: String
         },
         website: {
-            type: String,
+            type: String
         },
-        timestamps: true,
-        toObject: {
-            virtual: true, 
-        }
+        // timestamps: true,
+        // toObject: {
+        //     virtual: true
+        // }
 });
 
-userSchema.pre('save', function(next) {
+// jobsSchema.virtual('jobs', {
+//     ref: 'jobs',
+//     foreignField: 'company',
+//     localField: '_id',
+//     justOne: false
+// })
+
+
+companiesSchema.pre('save', function(next) {
     if(this.isModified('password')) {
         bcrypt.genSalt(SALT_WORK_FACTOR)
             .then(salt => {
@@ -64,16 +73,9 @@ userSchema.pre('save', function(next) {
     }
 });
 
-userSchema.methods.checkPassword = function(password) {
+companiesSchema.methods.checkPassword = function(password) {
     return bcrypt.compare(password, this.password);
 };
-
-jobsSchema.virtual('jobs', {
-    ref: 'Jobs',
-    foreignField: 'Company',
-    localField: '_id',
-    justOne: false
-})
 
 const Companies = mongoose.model('Companies', companiesSchema);
 module.exports = Companies;

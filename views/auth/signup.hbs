@@ -1,0 +1,92 @@
+<form action="/signup" method="POST" enctype="multipart/form-data">
+<h1>Registra tu empresa</h1>
+    <div class="form-group">
+        <label for="compname">Nombre de la empresa</label>
+        <input type="text" name="compname" class="form-control" {{#if error.name }}is-invalid{{/if}} id="compname" placeholder="Escribe el nombre de la sociedad" value="company.compname">
+        {{#if error.compname}}
+        <div class="invalid-feedback">
+            {{error.compname.message}}
+        </div>
+        {{/if}}
+    </div>
+
+    <div class="form-group">
+        <label for="comername">Nombre comercial</label>
+        <input type="text" name="comername" class="form-control {{#if error.comername }}is-invalid{{/if}}" id="comername" placeholder="Escribe el nombre comercial aquí" value="{{ company.comername }}">
+        {{#if error.comername}}
+        <div class="invalid-feedback">
+            {{error.comername.message}}
+        </div>
+        {{/if}}
+    </div>
+
+    <div class="form-group">
+        <label for="contactname">Nombre de la persona de contacto</label>
+        <input type="text" name="contactname" class="form-control" {{#if error.contactname }}is-invalid{{/if}} id="contactname" placeholder="Introduce aquí el nombre..." value="{{ company.contactname }}">
+        {{#if error.contactname}}
+        <div class="invalid-feedback">
+            {{error.contactname.message}}
+        </div>
+        {{/if}}
+    </div>
+
+    <div class="form-group">
+        <label for="compemail">Email de la empresa</label>
+        <input type="email" name="compemail" class="form-control" {{#if error.compemail }}is-invalid{{/if}} id="compemail" placeholder="Introduce el email de empresa" value="{{ company.compemail }}">
+        {{#if error.compemail}}
+        <div class="invalid-feedback">
+            {{error.compemail.message}}
+        </div>
+        {{/if}}
+    </div>
+
+    <div class="form-group">
+        <label for="password">Contraseña</label>
+        <input type="text" name="password" class="form-control" {{#if error.password }}is-invalid{{/if}} id="password" placeholder="Introduce tu contraseña" value="{{ company.password }}">
+        {{#if error.password}}
+        <div class="invalid-feedback">
+            {{error.password.message}}
+        </div>
+        {{/if}}
+    </div>
+
+    <div class="form-group">
+        <label for="vat">CIF</label>
+        <input type="text" name="vat" class="form-control" {{#if error.vat }}is-invalid{{/if}} id="vat" placeholder="Introduce el CIF de la empresa" value="{{ company.vat }}">
+        {{#if error.vat}}
+        <div class="invalid-feedback">
+            {{error.vat.message}}
+        </div>
+        {{/if}}
+    </div>
+
+    <div class="form-group">
+        <label for="address">Dirección</label>
+        <input type="text" name="address" class="form-control" {{#if error.address }}is-invalid{{/if}} id="address" placeholder="Introduce la dirección de la empresa" value="{{ company.address }}">
+        {{#if error.address}}
+        <div class="invalid-feedback">
+            {{error.address.message}}
+        </div>
+        {{/if}}
+    </div>
+
+    <div class="form-group">
+        <label for="description">Descripción de la empresa</label>
+        <input type="text" name="description" class="form-control" {{#if error.description }}is-invalid{{/if}} id="description" placeholder="Pon la descripción de tu empresa" value="{{ company.description }}">
+        {{#if error.description}}
+        <div class="invalid-feedback">
+            {{error.description.message}}
+        </div>
+        {{/if}}
+    </div>
+
+    <div class="form-group">
+        <label for="website">Introduce la web de tu empresa</label>
+        <input type="text" name="website" class="form-control" {{#if error.website }}is-invalid{{/if}} id="website" placeholder="Pon la descripción de tu empresa" value="{{ company.website }}">
+        {{#if error.website}}
+        <div class="invalid-feedback">
+            {{error.website.message}}
+        </div>
+        {{/if}}
+    </div>
+</form>
